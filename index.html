@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجتمع مُسلِم | صدقة جارية ونشر الخير</title>
+    <!-- خطوط عربية فخمة -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* خلفية الورد السوداء الفخمة الأولى للموقع بالكامل */
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
+                        url('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #f1f1f1;
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* الخلفية السوداء بالخط العربي للجزء العلوي فقط */
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(11,11,11,0.95)), 
+                        url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 90px 20px;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+
+        header h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3.2rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.25rem;
+            color: #dddddd;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.3rem;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #fff;
+            border-bottom: 2px solid #333;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        /* كروت قنوات التيك توك شيك ومدمجة مع خلفية الورد */
+        .accounts-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .account-card {
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(5px);
+            border: 1px solid #262626;
+            border-radius: 15px;
+            padding: 25px;
+            width: 320px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .account-card:hover {
+            transform: translateY(-5px);
+            border-color: #555;
+        }
+
+        .account-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #444;
+            margin-bottom: 15px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .account-card h3 {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .account-card p {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-tiktok {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .btn-tiktok:hover {
+            background-color: #e6e6e6;
+        }
+
+        /* قسم الصدقة الجارية على روح الموتى */
+        .charity-section {
+            background: rgba(17, 17, 17, 0.85);
+            backdrop-filter: blur(5px);
+            border: 1px solid #222;
+            border-radius: 15px;
+            padding: 40px 20px;
+            margin-bottom: 60px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .charity-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .charity-card {
+            background: rgba(24, 24, 24, 0.9);
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 20px;
+            width: 280px;
+            text-align: center;
+        }
+
+        .charity-avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1px solid #444;
+            margin-bottom: 15px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .charity-card h4 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .quran-verse {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-top: 30px;
+            line-height: 2;
+        }
+
+        /* قسم ستشعر بفرق */
+        .highlight-banner {
+            background: linear-gradient(135deg, rgba(26,26,26,0.9), rgba(13,13,13,0.9));
+            backdrop-filter: blur(5px);
+            border-right: 4px solid #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .highlight-banner h3 {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .highlight-banner p {
+            color: #aaa;
+            font-size: 1.1rem;
+        }
+
+        /* الأقسام العامة */
+        .content-section {
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(5px);
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: right;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .content-section h2 {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .content-section ul {
+            list-style-type: none;
+            padding-right: 0;
+        }
+
+        .content-section li {
+            position: relative;
+            padding-right: 25px;
+            margin-bottom: 15px;
+            color: #d1d1d1;
+            font-size: 1.05rem;
+        }
+
+        .content-section li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            color: #666;
+            font-weight: bold;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(8, 8, 8, 0.95);
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #1a1a1a;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الجزء العلوي بالخلفية السوداء للخط العربي -->
+    <div class="hero-bg">
+        <header>
+            <h1>مجتمع مُسلِم</h1>
+            <p>مجتمع ديني هادف يسعى لنشر الفيديوهات الدينية القيّمة والعلم النافع، ونشر الخير بهدف الصدقة الجارية، لتبقى آثارنا الطيبة ممتدة وخالصة لوجه الله تعالى.</p>
+        </header>
+    </div>
+
+    <div class="container" style="text-align: center;">
+        
+        <h2 class="section-title">القنوات الرسمية</h2>
+        
+        <!-- قسم قنوات التيك توك -->
+        <div class="accounts-wrapper">
+            
+            <!-- قناة مسلم -->
+            <div class="account-card">
+                <img src="muslim.jpg" alt="قناة مسلم" class="account-avatar">
+                <h3>chanel "مِسْلم"</h3>
+                <p>@hudaquran00</p>
+                <a href="https://www.tiktok.com/@hudaquran00?_r=1&_t=ZS-9AWG7GdMVkK" target="_blank" class="btn-tiktok">زيارة القناة</a>
+            </div>
+
+            <!-- أكونت مؤمن وليد -->
+            <div class="account-card">
+                <img src="momen.jpg" alt="مؤمن وليد" class="account-avatar">
+                <h3>Owner Channel</h3>
+                <p>@momenwalid2008</p>
+                <a href="https://www.tiktok.com/@momenwalid2008?_r=1&_t=ZS-9AWEcYcBMpw" target="_blank" class="btn-tiktok">زيارة الحساب</a>
+            </div>
+
+        </div>
+
+        <!-- قسم الصدقة الجارية -->
+        <div class="charity-section">
+            <h2 class="section-title" style="margin-bottom: 15px;">صدقة جارية على روح الموتى</h2>
+            <p style="color: #aaa; max-width: 700px; margin: 0 auto;">نسأل الله العلي القدير أن يغفر لهما ويرحمهما ويسكنهما فسيح جناته، وأن يجعل هذا العمل شاهداً لهما وفي ميزان حسناتهما.</p>
+            
+            <div class="charity-cards">
+                <!-- مستر أحمد جمعة -->
+                <div class="charity-card">
+                    <img src="ahmed.jpg" alt="مستر أحمد جمعة" class="charity-avatar">
+                    <h4>مستر أحمد جمعة</h4>
+                </div>
+
+                <!-- صاحبنا محمود -->
+                <div class="charity-card">
+                    <img src="young.jpg" alt="صاحبنا محمود" class="charity-avatar">
+                    <h4>صاحبنا محمود</h4>
+                </div>
+            </div>
+
+            <div class="quran-verse">
+                «إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ»
+            </div>
+        </div>
+
+        <!-- قسم ستشعر بفرق -->
+        <div class="highlight-banner">
+            <h3>ستشعر بفرق منذ اللحظة الأولى</h3>
+            <p>حين تقبل بقلب صافٍ وتتأمل الكلمات الطيبة والذكر الحكيم، ستجد لقلبك طمأنينة وراحة لا تعادلها متعة في هذه الدنيا.</p>
+        </div>
+
+        <!-- قوانين المجتمع -->
+        <div class="content-section">
+            <h2>قوانين وضوابط المجتمع</h2>
+            <ul>
+                <li>يُمنع منعاً باتاً نشر أي محتوى يخالف الشريعة الإسلامية أو الآداب العامة.</li>
+                <li>احترام آراء الآخرين والالتزام بالحوار الراقي الهادف في التعليقات والمشاركات.</li>
+                <li>الهدف الأساسي هو النفع العام وابتغاء وجه الله والصدقة الجارية، لذا يُرجى تحرّي الصدق والأمانة في كل ما يُنشر.</li>
+                <li>يُمنع استخدام المنصة لأي أغراض تجارية شخصية بحتة تتعارض مع الطابع الديني النقي للموقع.</li>
+            </ul>
+        </div>
+
+        <!-- النصائح الدينية -->
+        <div class="content-section">
+            <h2>نصائح دينية وإضاءات إيمانية</h2>
+            <ul>
+                <li>احرص على أداء الصلوات في مواقيتها فإنها عماد الدين وأول ما يحساب عليه العبد.</li>
+                <li>اجعل لك وردًا يومياً من كتاب الله عز وجل ولو آيات معدودة، فإن القرآن يطمئن القلوب.</li>
+                <li>أكثر من الاستغفار والصلاة على النبي صلى الله عليه وسلم، فهي مفتاح لكل ضيق وفرج لكل هم.</li>
+                <li>تذكر دائماً أن الكلمة الطيبة صدقة، فاجعل أثرك في الدنيا حسناً ومباركاً.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © لمجتمع مُسلِم والصدقة الجارية | 2026</p>
+    </footer>
+
+</body>
+</html>
